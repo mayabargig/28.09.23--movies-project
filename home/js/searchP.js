@@ -2,26 +2,36 @@ const apiKey = "be93d2314b628d913609d274fc1bdf70";
 const moviesContainer = document.getElementById("moviesContainer");
 const popularitySelect = document.getElementById("popularitySelect");
 const pagination = document.getElementById("pagination");
+const movieName = document.getElementById("movieName");
+
+movieName.addEventListener("input", fetchMovies);
+pagination.addEventListener("click", handlePaginationClick);
 
 let currentPage = 1;
 
-popularitySelect.addEventListener("change", fetchMovies);
-pagination.addEventListener("click", handlePaginationClick);
-
 function fetchMovies() {
-    const popularity = popularitySelect.value;
-    console.log(popularity);
-    const url = `https://api.themoviedb.org/3/trending/movie/${popularity}?api_key=${apiKey}&language=en-US&page=${currentPage}`;
-    
-    fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-        const movies = data.results;
-        console.log(movies);
-        displayMovies(movies);
-    })
-    .catch((error) => console.error("Error fetching movies:", error));
-}
+    const name = movieName.value;
+    console.log(name);
+    const url = `https://api.themoviedb.org/3/search/movie??api_key=${apiKey}&language=en-US&query=${name}&page=${currentPage}&include_adult=false`;
+
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZTkzZDIzMTRiNjI4ZDkxMzYwOWQyNzRmYzFiZGY3MCIsInN1YiI6IjY1MTVlOTcwZDQ2NTM3MDEwMDFiMWI4ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.daVbJcMAi-EU2ISKujKA40QMjBgEFsZvC26VPRDCBu0'
+        }
+      };
+   
+      fetch(url, options)
+        .then(response => response.json())
+        .then((data) =>{
+            console.log(data)
+            const movies = data.results;
+            console.log(movies);
+            displayMovies(movies);
+        })
+        .catch(err => console.error("Error fetching movies:", err));
+    }
 
 function displayMovies(movies) {
     moviesContainer.innerHTML = "";
@@ -69,4 +79,3 @@ function handlePaginationClick(event) {
 }
 
 fetchMovies();
-

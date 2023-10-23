@@ -1,0 +1,39 @@
+.movie-card {
+    max-width: 300px; 
+    margin: 0 auto; 
+    background-color: #fff; 
+    border-radius: 5px; 
+    border: solid 1.5px black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    padding: 20px; 
+}
+
+.movie-poster {
+    max-width: 100%; 
+    height: auto;
+}
+
+h3 {
+    font-size: 18px; 
+    margin: 10px 0; 
+}
+
+p {
+    font-size: 14px; 
+    color: #888; 
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+li {
+    font-size: 16px; 
+    margin: 5px 0; 
+}
+
+#searchButton:hover{
+    background-color: #007bff;
+}
