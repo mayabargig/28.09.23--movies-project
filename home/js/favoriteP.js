@@ -1,8 +1,6 @@
 const favoriteMovies = JSON.parse(localStorage.getItem("favoriteArray"));
 
 function displayFavoriteMovies() {
-    const movieCard = document.createElement("div");
-    movieCard.classList.add("movie-card");
     
     moviesContainer.innerHTML = "";
     
@@ -10,8 +8,10 @@ function displayFavoriteMovies() {
         moviesContainer.innerHTML += "<p>You haven't added any favorite movies yet.</p>";
     } else {
         favoriteMovies.forEach((movie) => {
-                    movieCard.innerHTML += movie;
-                    moviesContainer.appendChild(movieCard);
+            const movieCard = document.createElement("div");
+            movieCard.classList.add("movie-card");
+            movieCard.innerHTML += movie;
+            moviesContainer.appendChild(movieCard);
                 });
             }
         }
