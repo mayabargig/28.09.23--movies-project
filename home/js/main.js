@@ -46,18 +46,14 @@ function displayMovies(movies) {
         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
         </svg> </div>
         `;
-        
-        // console.log(movieCard.innerHTML);
+
         favoriteArray.push(movieCard.innerHTML);
         moviesContainer.appendChild(movieCard);
         createPagination();
     });
     console.log(favoriteArray);
-    // console.log(favoriteArray[0]);
     localStorage.setItem("favoriteArray", JSON.stringify(favoriteArray));
 }
-
-// let newFavoriteArray = [];
 
 function changeColor (button){
         if(button.style.color !== "red"){
@@ -65,24 +61,7 @@ function changeColor (button){
         }else{
             button.style= "color: black";
         } 
-
-        // favoriteArray.forEach((item) => {
-        //     console.log(item);
-        // })
-        }
-        // console.log(newFavoriteArray);
-
-// function checkColor (button){
-//     favoriteArray.forEach((item) => {
-//         console.log(button);
-//         if(button.style.color !== "red"){
-//             console.log(item);
-//         }else{
-//             console.log(item);
-//         }
-//     })
-// };
-
+ }
 
 function createPagination() {
     pagination.innerHTML ="";
@@ -108,23 +87,3 @@ function handlePaginationClick(event) {
 }
 
 fetchMovies();
-
-const favoriteButton = document.querySelectorAll("favoriteButton");
-
-// favoriteButton.forEach((button) => {
-//     button.addEventListener("click", function() {
-//         if(button.style.color === "red"){
-//             console.log("yes");
-//         }else{
-//             console.log("no");
-//         }
-    
-//     });
-// });
-// const myArrayFromStorage = JSON.parse(localStorage.getItem('favoriteArray'));
-
-// if (myArrayFromStorage) {
-//     console.log(myArrayFromStorage);
-// } else {
-//     console.log('array not found in the Local Storage.');
-// }
