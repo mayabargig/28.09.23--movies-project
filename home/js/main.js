@@ -58,8 +58,6 @@ function displayMovies(movies) {
     console.log(favoriteArray);
 }
 
-
-
 function createPagination() {
     pagination.innerHTML = "";
     for (let i = 1; i <= 5; i++) {
