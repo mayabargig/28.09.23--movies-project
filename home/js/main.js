@@ -35,8 +35,8 @@ function displayMovies(movies) {
         // TODO: convert to a function and move to shared file...
         // use it from both main and fav page
         const isLiked = favoriteArray?.includes(movie?.id + '')
-        const likedIcon = 'far fa-heart'
-        const unlikeIcon = 'fas fa-heart'
+        const likedIcon = 'fas fa-heart'
+        const unlikeIcon = 'far fa-heart'
         const heartClass = isLiked ? likedIcon : unlikeIcon;
 
         const movieCard = document.createElement("div");
@@ -50,7 +50,7 @@ function displayMovies(movies) {
         <img class="movie-poster" src="${posterPath}" alt="${movie.title}">
         <h3>${movie.title}</h3>
         <p>Release Date: ${movie.release_date}</p>
-        <i class="${heartClass}" id="${movie.id}" onclick="changeColor(this)"></i>`;
+        <i class="${heartClass}" id="${movie.id}" onclick="changeColor(this)" style="color:red"></i>`;
 
         moviesContainer.appendChild(movieCard);
         createPagination();

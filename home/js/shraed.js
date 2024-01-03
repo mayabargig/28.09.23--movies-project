@@ -20,7 +20,6 @@ var changeColor = function (button) {
         setF(favoriteArray)
         likedIcon.split(' ').forEach(i => button.classList.remove(i))
         unlikeIcon.split(' ').forEach(i => button.classList.add(i))
-        button.style.color = "red";
     }
     else {
         console.log('before delete: ', favoriteArray)
@@ -33,6 +32,8 @@ var changeColor = function (button) {
         setF(favoriteArray)
         unlikeIcon.split(' ').forEach(i => button.classList.remove(i))
         likedIcon.split(' ').forEach(i => button.classList.add(i))
-        // button.style.color = "black";
+    }
+    function setF(favoriteArray) {
+        localStorage.setItem("favoriteArray", JSON.stringify(favoriteArray));
     }
 }
