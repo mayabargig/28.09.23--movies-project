@@ -32,8 +32,6 @@ function displayMovies(movies) {
     moviesContainer.innerHTML = "";
 
     movies.forEach((movie) => {
-        // TODO: convert to a function and move to shared file...
-        // use it from both main and fav page
         const isLiked = favoriteArray?.includes(movie?.id + '')
         const likedIcon = 'fas fa-heart'
         const unlikeIcon = 'far fa-heart'
